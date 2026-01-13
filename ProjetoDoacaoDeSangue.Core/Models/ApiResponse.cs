@@ -1,0 +1,9 @@
+﻿namespace ProjetoDoacaoDeSangue.Core.Models
+{
+    public class ApiResponse<T>
+    {
+        public bool Status { get; set; }
+        public string? Message { get; set; }
+        public T? Value { get; set; }
+    }
+}

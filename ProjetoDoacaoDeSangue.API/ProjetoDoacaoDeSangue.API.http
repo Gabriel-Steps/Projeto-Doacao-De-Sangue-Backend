@@ -1,0 +1,6 @@
+@ProjetoDoacaoDeSangue.API_HostAddress = http://localhost:5216
+
+GET {{ProjetoDoacaoDeSangue.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
