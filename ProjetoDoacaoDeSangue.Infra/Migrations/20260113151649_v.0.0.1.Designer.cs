@@ -11,7 +11,7 @@ using ProjetoDoacaoDeSangue.Infra;
 
 namespace ProjetoDoacaoDeSangue.Infra.Migrations
 {
-    [DbContext(typeof(ProjetoDbContex))]
+    [DbContext(typeof(ProjetoDbContext))]
     [Migration("20260113151649_v.0.0.1")]
     partial class v001
     {

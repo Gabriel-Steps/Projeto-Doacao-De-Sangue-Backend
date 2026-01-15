@@ -4,9 +4,9 @@ using System.Reflection;
 
 namespace ProjetoDoacaoDeSangue.Infra
 {
-    public class ProjetoDbContex : DbContext
+    public class ProjetoDbContext : DbContext
     {
-        public ProjetoDbContex(DbContextOptions<ProjetoDbContex> options) : base(options) { }
+        public ProjetoDbContext(DbContextOptions<ProjetoDbContext> options) : base(options) { }
 
         public DbSet<Doacao> Doacoes { get; set; }
         public DbSet<Doador> Doadores { get; set; }

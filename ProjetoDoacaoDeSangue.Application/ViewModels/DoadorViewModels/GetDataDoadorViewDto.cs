@@ -1,6 +1,6 @@
 ﻿using ProjetoDoacaoDeSangue.Core.Enums;
 
-namespace ProjetoDoacaoDeSangue.Application.Services.DoadorServices.ViewModels
+namespace ProjetoDoacaoDeSangue.Application.ViewModels.DoadorViewModels
 {
     public class GetDataDoadorViewDto
     {

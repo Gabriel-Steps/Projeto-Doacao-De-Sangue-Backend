@@ -1,4 +1,5 @@
 ﻿using ProjetoDoacaoDeSangue.Core.Enums;
+using ProjetoDoacaoDeSangue.Core.Exceptions.DoadorExceptions;
 
 namespace ProjetoDoacaoDeSangue.Core.Entities
 {
@@ -13,5 +14,22 @@ namespace ProjetoDoacaoDeSangue.Core.Entities
         public double Peso { get; set; }
         public TiposSanguineos TipoSanguineo { get; set; }
         public string FatorRh { get; set; }
+
+        public void AtualizarDados(
+        string nomeCompleto,
+        DateTime dataNascimento,
+        double peso,
+        TiposSanguineos tipoSanguineo,
+        string fatorRh)
+        {
+            if (peso < 50)
+                throw new MinimumWeightForDonationException();
+
+            NomeCompleto = nomeCompleto;
+            DataNascimento = dataNascimento;
+            Peso = peso;
+            TipoSanguineo = tipoSanguineo;
+            FatorRh = fatorRh;
+        }
     }
 }

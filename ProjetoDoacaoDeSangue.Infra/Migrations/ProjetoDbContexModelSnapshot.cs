@@ -10,7 +10,7 @@ using ProjetoDoacaoDeSangue.Infra;
 
 namespace ProjetoDoacaoDeSangue.Infra.Migrations
 {
-    [DbContext(typeof(ProjetoDbContex))]
+    [DbContext(typeof(ProjetoDbContext))]
     partial class ProjetoDbContexModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

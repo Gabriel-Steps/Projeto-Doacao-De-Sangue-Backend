@@ -1,13 +1,23 @@
 using Microsoft.EntityFrameworkCore;
+using ProjetoDoacaoDeSangue.Application;
 using ProjetoDoacaoDeSangue.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ProjetoDbContex>(options =>
+builder.Services.AddDbContext<ProjetoDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 builder.Services.AddControllers();
+
+#region Mediators
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(
+        typeof(ApplicationAssemblyReference).Assembly
+    )
+);
+#endregion
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -19,6 +29,7 @@ builder.Services.AddCors(options =>
                         .AllowAnyMethod());
 });
 
+builder.Services.AddInfra();
 
 var app = builder.Build();
 
