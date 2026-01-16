@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDoacaoDeSangue.Appli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDoacaoDeSangue.Infra", "ProjetoDoacaoDeSangue.Infra\ProjetoDoacaoDeSangue.Infra.csproj", "{7AF9C758-CBB0-4A2F-AF46-D98E9BB141EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoDoacaoDeSangue.Test", "ProjetoDoacaoDeSangue.Test\ProjetoDoacaoDeSangue.Test.csproj", "{EECA8307-C241-4C27-9D8C-A18EA9219FAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7AF9C758-CBB0-4A2F-AF46-D98E9BB141EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AF9C758-CBB0-4A2F-AF46-D98E9BB141EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AF9C758-CBB0-4A2F-AF46-D98E9BB141EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EECA8307-C241-4C27-9D8C-A18EA9219FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EECA8307-C241-4C27-9D8C-A18EA9219FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EECA8307-C241-4C27-9D8C-A18EA9219FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EECA8307-C241-4C27-9D8C-A18EA9219FAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

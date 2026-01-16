@@ -16,8 +16,9 @@ namespace ProjetoDoacaoDeSangue.Application.Commands.DoadorCommands.CreateDoador
 
         public async Task<int> Handle(CreateDoadorAsyncCommand request, CancellationToken cancellationToken)
         {
-            var doador = await _repository.GetByEmail(request.Email, cancellationToken) ??
-                throw new EmailAlreadyExistsException(request.Email);
+            var doador = await _repository.GetByEmail(request.Email, cancellationToken);
+
+            if (doador != null) throw new EmailAlreadyExistsException(request.Email);
 
             var newDoador = new Doador()
             {

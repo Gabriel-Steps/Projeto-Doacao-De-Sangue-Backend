@@ -6,32 +6,32 @@ namespace ProjetoDoacaoDeSangue.Application.Commands.DoadorCommands.CreateDoador
 {
     public class CreateDoadorAsyncCommand : IRequest<int>
     {
-        //[Required(ErrorMessage = "Nome Completo obrigatório!")]
-        //[MinLength(3, ErrorMessage = "Nome muito curto!")]
+        [Required(ErrorMessage = "Full name is required!")]
+        [MinLength(3, ErrorMessage = "Very short name!")]
         public string NomeCompleto { get; set; } = string.Empty;
 
-        //[Required(ErrorMessage = "Email é obrigatório")]
-        //[EmailAddress(ErrorMessage = "Email inválido")]
+        [Required(ErrorMessage = "Email is required!")]
+        [EmailAddress(ErrorMessage = "Invalid email!")]
         public string Email { get; set; } = string.Empty;
 
-        //[Required(ErrorMessage = "Senha é obrigatória!")]
-        //[MinLength(5, ErrorMessage = "Senha muito curta!")]
+        [Required(ErrorMessage = "Password is required!")]
+        [MinLength(5, ErrorMessage = "Very short password!")]
         public string Password { get; set; } = string.Empty;
 
-        //[Required(ErrorMessage = "Data de nascimento é obrigatória!")]
+        [Required(ErrorMessage = "Date of birth is required!")]
         public DateTime DataNascimento { get; set; }
 
-        //[Required(ErrorMessage = "Gênero é obrigatório!")]
+        [Required(ErrorMessage = "Gender is required!")]
         public Generos Genero { get; set; }
 
-        //[Required]
-        //[Range(50, 500, ErrorMessage = "Peso mínimo para doação é 50kg")]
+        [Required(ErrorMessage = "Weight is required!")]
+        [Range(50, 500, ErrorMessage = "The minimum weight for donation is 50 kg.")]
         public double Peso { get; set; }
 
-        //[Required]
+        [Required(ErrorMessage = "You must provide your blood type!")]
         public TiposSanguineos TipoSanguineo { get; set; }
 
-        //[Required]
+        [Required(ErrorMessage = "Enter your HR Factor!")]
         public string FatorRh { get; set; } = string.Empty;
     }
 }

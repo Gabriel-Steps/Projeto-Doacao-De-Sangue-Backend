@@ -2,9 +2,10 @@
 {
     public class ApiException : Exception
     {
-        public int StatusCode { get; set; }
+        public int StatusCode { get; }
 
-        public ApiException(string message, int statusCode) 
+        protected ApiException(string message, int statusCode)
+            : base(message)
         {
             StatusCode = statusCode;
         }

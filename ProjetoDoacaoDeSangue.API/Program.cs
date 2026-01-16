@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjetoDoacaoDeSangue.Application;
+using ProjetoDoacaoDeSangue.Application.Middleware;
 using ProjetoDoacaoDeSangue.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,6 +43,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.MapControllers();
 

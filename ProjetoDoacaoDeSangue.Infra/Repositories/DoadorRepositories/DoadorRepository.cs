@@ -1,5 +1,4 @@
-﻿using Azure.Core;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ProjetoDoacaoDeSangue.Core.Entities;
 
 namespace ProjetoDoacaoDeSangue.Infra.Repositories.DoadorRepositories

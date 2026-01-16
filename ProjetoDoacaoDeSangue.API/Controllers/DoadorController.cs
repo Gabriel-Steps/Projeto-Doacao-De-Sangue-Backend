@@ -6,6 +6,9 @@ using ProjetoDoacaoDeSangue.Application.Commands.DoadorCommands.UpdateDoadorAsyn
 using ProjetoDoacaoDeSangue.Application.Queries.DoadoresQuerys.GetAllDoadorAsync;
 using ProjetoDoacaoDeSangue.Application.Queries.DoadoresQuerys.GetByIdDoadorAsync;
 using ProjetoDoacaoDeSangue.Application.Queries.DoadoresQuerys.GetDonationHistoryAsync;
+using ProjetoDoacaoDeSangue.Core.Models;
+using ProjetoDoacaoDeSangue.Core.Entities;
+using ProjetoDoacaoDeSangue.Application.ViewModels.DoadorViewModels;
 
 namespace ProjetoDoacaoDeSangue.API.Controllers
 {
@@ -23,7 +26,12 @@ namespace ProjetoDoacaoDeSangue.API.Controllers
         public async Task<IActionResult> CreateDoadorAsync([FromBody] CreateDoadorAsyncCommand model)
         {
             var id = await _mediator.Send(model);
-            return Ok(id);
+            return Ok(new ApiResponse<int>
+            {
+                Status = true,
+                Message = null,
+                Value = id
+            });
         }
 
         [HttpDelete, Route("{id}")]
@@ -31,14 +39,24 @@ namespace ProjetoDoacaoDeSangue.API.Controllers
         {
             var command = new DeleteDoadorAsyncCommand(id);
             await _mediator.Send(command);
-            return Ok();
+            return Ok(new ApiResponse<object>
+            {
+                Status = true,
+                Message = "Donor successfully deleted!",
+                Value = null
+            });
         }
 
         [HttpPut, Route("update")]
         public async Task<IActionResult> UpdateDoadorAsync([FromBody] UpdateDoadorAsyncCommand model)
         {
             await _mediator.Send(model);
-            return Ok();
+            return Ok(new ApiResponse<object>
+            {
+                Status = true,
+                Message = "Donor successfully updated!",
+                Value = null
+            });
         }
 
         [HttpGet]
@@ -47,7 +65,12 @@ namespace ProjetoDoacaoDeSangue.API.Controllers
             var query = new GetAllDoadorAsyncQuery();
             var doadores = await _mediator.Send(query);
 
-            return Ok(doadores);
+            return Ok(new ApiResponse<List<Doador>>
+            {
+                Status = true,
+                Message = null,
+                Value = doadores
+            });
         }
 
         [HttpGet, Route("{id}")]
@@ -56,7 +79,12 @@ namespace ProjetoDoacaoDeSangue.API.Controllers
             var query = new GetByIdDoadorAsyncQuery(id);
             var doador = await _mediator.Send(query);
 
-            return Ok(doador);
+            return Ok(new ApiResponse<GetDataDoadorViewDto>
+            {
+                Status = true,
+                Message = null,
+                Value = doador
+            });
         }
 
         [HttpGet, Route("{id}/history")]
@@ -65,7 +93,12 @@ namespace ProjetoDoacaoDeSangue.API.Controllers
             var query = new GetDonationHistoryAsyncQuery(id);
             var doacoes = await _mediator.Send(query);
 
-            return Ok(doacoes);
+            return Ok(new ApiResponse<List<Doacao>>
+            {
+                Status = true,
+                Message = null,
+                Value = doacoes
+            });
         }
     }
 }
