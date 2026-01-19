@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjetoDoacaoDeSangue.Application;
 using ProjetoDoacaoDeSangue.Application.Middleware;
 using ProjetoDoacaoDeSangue.Infra;
+using ProjetoDoacaoDeSangue.Infra.Repositories.EnderecoRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ builder.Services.AddDbContext<ProjetoDbContext>(options =>
 
 builder.Services.AddControllers();
 
-#region Mediators
+#region Mediator
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(
         typeof(ApplicationAssemblyReference).Assembly
@@ -30,6 +31,7 @@ builder.Services.AddCors(options =>
                         .AllowAnyMethod());
 });
 
+builder.Services.AddHttpClient<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddInfra();
 
 var app = builder.Build();

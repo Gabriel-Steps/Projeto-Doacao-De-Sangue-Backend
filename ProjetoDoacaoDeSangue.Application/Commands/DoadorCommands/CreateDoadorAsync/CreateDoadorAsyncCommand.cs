@@ -25,7 +25,7 @@ namespace ProjetoDoacaoDeSangue.Application.Commands.DoadorCommands.CreateDoador
         public Generos Genero { get; set; }
 
         [Required(ErrorMessage = "Weight is required!")]
-        [Range(50, 500, ErrorMessage = "The minimum weight for donation is 50 kg.")]
+        //[Range(50, 500, ErrorMessage = "The minimum weight for donation is 50 kg.")]
         public double Peso { get; set; }
 
         [Required(ErrorMessage = "You must provide your blood type!")]

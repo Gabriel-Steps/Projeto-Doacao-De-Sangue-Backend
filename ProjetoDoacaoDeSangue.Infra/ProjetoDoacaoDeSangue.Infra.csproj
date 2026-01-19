@@ -22,4 +22,8 @@
     <ProjectReference Include="..\ProjetoDoacaoDeSangue.Core\ProjetoDoacaoDeSangue.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
 </Project>
