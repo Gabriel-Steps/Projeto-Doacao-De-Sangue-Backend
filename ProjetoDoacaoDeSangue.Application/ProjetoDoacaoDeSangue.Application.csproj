@@ -16,9 +16,4 @@
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.9" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\DoacaoCommands\" />
-    <Folder Include="Commands\EstoqueDeSangueCommands\" />
-  </ItemGroup>
-
 </Project>

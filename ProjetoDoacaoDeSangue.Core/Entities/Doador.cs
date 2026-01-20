@@ -15,12 +15,7 @@ namespace ProjetoDoacaoDeSangue.Core.Entities
         public TiposSanguineos TipoSanguineo { get; set; }
         public string FatorRh { get; set; }
 
-        public void AtualizarDados(
-        string nomeCompleto,
-        DateTime dataNascimento,
-        double peso,
-        TiposSanguineos tipoSanguineo,
-        string fatorRh)
+        public void AtualizarDados(string nomeCompleto, DateTime dataNascimento, double peso, TiposSanguineos tipoSanguineo, string fatorRh)
         {
             if (peso < 50)
                 throw new MinimumWeightForDonationException();
@@ -30,6 +25,12 @@ namespace ProjetoDoacaoDeSangue.Core.Entities
             Peso = peso;
             TipoSanguineo = tipoSanguineo;
             FatorRh = fatorRh;
+        }
+
+        public bool PodeDoar(DateTime dataUltimaDoacao, DateTime dataAtual)
+        {
+            var diasMinimos = Genero == Generos.Homem ? 60 : 90;
+            return (dataAtual - dataUltimaDoacao).TotalDays >= diasMinimos;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoDoacaoDeSangue.Core.Entities;
+using ProjetoDoacaoDeSangue.Infra.Exceptions.EnderecoExceptions;
 using ProjetoDoacaoDeSangue.Infra.Models.EnderecoModels;
 using System.Net.Http.Json;
 
@@ -22,7 +23,7 @@ namespace ProjetoDoacaoDeSangue.Infra.Repositories.EnderecoRepositories
             $"https://viacep.com.br/ws/{cep}/json/");
 
             if (response == null || response.Erro)
-                throw new Exception("CEP not found.");
+                throw new NotFoundCepInViaCepException(cep);
 
             return response;
         }
